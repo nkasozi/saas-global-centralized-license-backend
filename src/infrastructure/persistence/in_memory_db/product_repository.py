@@ -2,8 +2,8 @@ from typing import List
 
 from result import Err, Ok, Result
 
-from infrastructure.persistence.in_memory_db.in_memory_repository import InMemoryRepository
 from src.core.models.product import Product
+from src.infrastructure.persistence.in_memory_db.in_memory_repository import InMemoryRepository
 
 
 class ProductRepository(InMemoryRepository[Product]):

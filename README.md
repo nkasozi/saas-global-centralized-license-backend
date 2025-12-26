@@ -118,7 +118,7 @@ The service will start on port 8000 and automatically redirect to interactive AP
 Prerequisites: Python 3.12+ and uv (see [Why uv?](#why-uv) below)
 
 ```bash
-uv sync --dev
+uv sync --all-extras
 make run
 ```
 
@@ -771,7 +771,7 @@ Or with Homebrew on macOS:
 brew install uv
 ```
 
-Once installed, `uv sync --dev` pulls all dependencies from the lock file and sets up your environment.
+Once installed, `uv sync --all-extras` pulls all dependencies from the lock file and sets up your environment.
 
 ### Code Quality
 
@@ -1254,7 +1254,7 @@ The pipeline uses `uv` for dependency management (updated from pip):
 - name: Install dependencies
   run: |
     python -m pip install uv
-    uv sync --dev
+    uv sync --all-extras
 ```
 
 ### Triggering the Pipeline

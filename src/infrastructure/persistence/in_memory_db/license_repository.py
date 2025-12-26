@@ -2,8 +2,8 @@ from typing import List
 
 from result import Ok, Result
 
-from infrastructure.persistence.in_memory_db.in_memory_repository import InMemoryRepository
 from src.core.models.licence import License
+from src.infrastructure.persistence.in_memory_db.in_memory_repository import InMemoryRepository
 
 
 class LicenseRepository(InMemoryRepository[License]):

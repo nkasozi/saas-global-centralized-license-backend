@@ -37,7 +37,7 @@ test-unit:
 	pytest tests/services -q
 
 test-integration:
-	pytest tests/api-q
+	pytest tests/api -q
 
 clean:
 	autoflake --in-place --remove-all-unused-imports --remove-unused-variables --recursive src tests

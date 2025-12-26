@@ -12,14 +12,14 @@ from src.api.dependencies import (
     get_webhook_repository,
 )
 from src.infrastructure.logging.logger_adapter import LoggerAdapter
-from infrastructure.persistence.in_memory_db.activation_repository import ActivationRepository
-from infrastructure.persistence.in_memory_db.audit_log_repository import AuditLogRepository
-from infrastructure.persistence.in_memory_db.brand_repository import BrandRepository
-from infrastructure.persistence.in_memory_db.end_product_user_repository import EndProductUserRepository
-from infrastructure.persistence.in_memory_db.license_key_repository import LicenseKeyRepository
-from infrastructure.persistence.in_memory_db.license_repository import LicenseRepository
-from infrastructure.persistence.in_memory_db.product_repository import ProductRepository
-from infrastructure.persistence.in_memory_db.webhook_repository import WebhookRepository
+from src.infrastructure.persistence.in_memory_db.activation_repository import ActivationRepository
+from src.infrastructure.persistence.in_memory_db.audit_log_repository import AuditLogRepository
+from src.infrastructure.persistence.in_memory_db.brand_repository import BrandRepository
+from src.infrastructure.persistence.in_memory_db.end_product_user_repository import EndProductUserRepository
+from src.infrastructure.persistence.in_memory_db.license_key_repository import LicenseKeyRepository
+from src.infrastructure.persistence.in_memory_db.license_repository import LicenseRepository
+from src.infrastructure.persistence.in_memory_db.product_repository import ProductRepository
+from src.infrastructure.persistence.in_memory_db.webhook_repository import WebhookRepository
 from src.main import app
 
 

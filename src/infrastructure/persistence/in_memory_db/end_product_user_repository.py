@@ -1,7 +1,7 @@
 from result import Err, Ok, Result
 
-from infrastructure.persistence.in_memory_db.in_memory_repository import InMemoryRepository
 from src.core.models.end_product_user import EndProductUser
+from src.infrastructure.persistence.in_memory_db.in_memory_repository import InMemoryRepository
 
 
 class EndProductUserRepository(InMemoryRepository[EndProductUser]):

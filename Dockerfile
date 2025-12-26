@@ -13,7 +13,6 @@ RUN pip install --no-cache-dir uv && \
     uv pip install --system --no-cache-dir -e .
 
 COPY src/ ./src/
-COPY data/ ./data/
 
 EXPOSE 8000
 
