@@ -1,16 +1,26 @@
-from abc import abstractmethod, ABC
-from typing import Optional
+from abc import ABC, abstractmethod
+from typing import Generic, List, TypeVar
+
+from result import Result
 
 from src.core.models.model import Model
 
+T = TypeVar("T", bound=Model)
 
-class RepositoryInterface(ABC):
+
+class RepositoryInterface(ABC, Generic[T]):
     @abstractmethod
-    def save(self, model: Model)->bool:
+    def save(self, model: T) -> Result[T, str]:
         pass
 
-    def get_by_id(self, id: int)-> Optional[Model]:
+    @abstractmethod
+    def get_by_id(self, entity_id: str) -> Result[T, str]:
         pass
 
-    def delete_by_id(self, id: int)->bool:
+    @abstractmethod
+    def delete_by_id(self, entity_id: str) -> Result[bool, str]:
+        pass
+
+    @abstractmethod
+    def get_all(self) -> Result[List[T], str]:
         pass
