@@ -1,4 +1,6 @@
+from dataclasses import dataclass
 
 
+@dataclass
 class Model:
-    pass
+    id: str | None = None
