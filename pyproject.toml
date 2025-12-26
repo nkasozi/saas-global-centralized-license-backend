@@ -1,6 +1,105 @@
 [project]
 name = "saasgloballicensesolution"
 version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.9"
-dependencies = []
+description = "Multi-tenant license service for group.one ecosystem"
+requires-python = ">=3.10"
+dependencies = [
+    "result",
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "sqlalchemy>=2.0.0",
+    "alembic>=1.12.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.1.0",
+    "loguru>=0.7.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.12.0",
+    "isort>=5.13.0",
+    "pylint>=3.0.0",
+    "autoflake>=2.0.0",
+]
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-v --strict-markers --tb=short"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "unit: unit tests",
+    "integration: integration tests",
+    "slow: slow tests",
+]
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "src/main.py",
+    "src/config.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "class .*\\bProtocol\\):",
+    "@abstractmethod",
+    "@abc.abstractmethod",
+]
+
+[tool.black]
+line-length = 120
+target-version = ["py310", "py311"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  \.git
+  | \.venv
+  | venv
+  | \.eggs
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+skip_glob = [".venv/*", "venv/*"]
+known_first_party = ["src"]
+
+[tool.pylint.messages_control]
+disable = [
+    "missing-docstring",
+    "too-few-public-methods",
+    "too-many-arguments",
+    "too-many-locals",
+    "redefined-outer-name",
+    "unused-argument",
+    "line-too-long",
+]
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.basic]
+good-names = ["i", "j", "k", "ex", "Run", "_", "id", "x", "y", "z", "f", "e"]
+
+[tool.pylint.design]
+max-branches = 15
+max-returns = 10
+
+[tool.uv.sources]
+result = { git = "https://github.com/montasaurus/result" }
